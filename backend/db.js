@@ -20,7 +20,8 @@ class DB{
         let result = (await this.conn.promise().query(sql, params))
         if (!all) result = result[0]
 
-        if (single) return result[0]
+        if (single && result.length > 0) return result[0]
+        else if (single) return undefined
         return result
     }  
 

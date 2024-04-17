@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2d791f98-88bd-4c3b-869d-8d0dde519f16",
+		"_postman_id": "161d8c62-d9c0-40d3-8700-855f9e053f3c",
 		"name": "Clapp",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "32680796"
@@ -68,6 +68,130 @@
 					"path": [
 						"api",
 						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Token",
+						"value": "9a8b599b2a9006697ead20b7b62f03c2226c55f2985d2f771e6aa9ccaf8611d8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3001/api/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"teszt1\",\r\n    \"email\": \"teszt1@teszt.com\",\r\n    \"password\": \"teszt\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "10.0.22.16:3001/api/register",
+					"host": [
+						"10",
+						"0",
+						"22",
+						"16"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"teszt@teszt.com\",\r\n    \"password\": \"teszt\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "10.0.22.16:3001/api/login",
+					"host": [
+						"10",
+						"0",
+						"22",
+						"16"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Token",
+						"value": "9a8b599b2a9006697ead20b7b62f03c2226c55f2985d2f771e6aa9ccaf8611d8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"screening_id\": 1,\r\n    \"tickets\": 3,\r\n    \"products_json\": {\r\n      \"products\": [{\r\n        \"popcorn_large\": 1,\r\n        \"cup_medium\": 1\r\n      }]\r\n    },\r\n    \"user_id\": 1\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "10.0.22.16:3001/api/order",
+					"host": [
+						"10",
+						"0",
+						"22",
+						"16"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"order"
 					]
 				}
 			},
