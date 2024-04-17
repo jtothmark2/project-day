@@ -85,3 +85,13 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+.closeDiv {
+  display: flex;
+  justify-content: end;
+}
+
+.close {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+}

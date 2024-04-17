@@ -16,13 +16,13 @@ class DB{
         })
     }
 
-    async query (sql, params=[], single=false, all=false){
-        let result = (await this.conn.promise().query(sql, vars))
+    async query(sql, params=[], single=false, all=false){
+        let result = (await this.conn.promise().query(sql, params))
         if (!all) result = result[0]
 
         if (single) return result[0]
         return result
-    }
+    }  
 
 }
 

@@ -1,6 +1,7 @@
 import './App.css';
 import './Movies.css';
 import { Component, React } from 'react';
+import { ReactComponent as CloseCircle } from './assets/close-circle.svg';
 
 class Movies extends Component {
   state = {
@@ -16,7 +17,7 @@ class Movies extends Component {
         <div className='movies'>
           <div className='movieCard'>
 
-            <img src={require("./cinema.jpg")} className='movieImg'></img>
+            <img src={require("./assets/cinema.jpg")} className='movieImg'></img>
 
 
             <h3 className='movieTitle'>Movie title</h3>
@@ -37,7 +38,7 @@ class Movies extends Component {
 
           <div className='movieCard'>
 
-            <img src={require("./cinema.jpg")} className='movieImg'></img>
+            <img src={require("./assets/cinema.jpg")} className='movieImg'></img>
 
 
             <h3 className='movieTitle'>Movie title</h3>
@@ -55,7 +56,8 @@ class Movies extends Component {
           </div>
           <div className='movieCard'>
 
-            <img src={require("./cinema.jpg")} className='movieImg'></img>
+
+            <img src={require("./assets/cinema.jpg")} className='movieImg'></img>
 
 
             <h3 className='movieTitle'>Movie title</h3>
@@ -73,7 +75,7 @@ class Movies extends Component {
           </div>
           <div className='movieCard'>
 
-            <img src={require("./cinema.jpg")} className='movieImg'></img>
+            <img src={require("./assets/cinema.jpg")} className='movieImg'></img>
 
 
             <h3 className='movieTitle'>Movie title</h3>
@@ -91,7 +93,7 @@ class Movies extends Component {
           </div>
           <div className='movieCard'>
 
-            <img src={require("./cinema.jpg")} className='movieImg'></img>
+            <img src={require("./assets/cinema.jpg")} className='movieImg'></img>
 
 
             <h3 className='movieTitle'>Movie title</h3>
@@ -103,7 +105,7 @@ class Movies extends Component {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.
             </p>
             <div className='btn'>
-              <button onClick={() => this.setState({ selectedMovie: { title: "superman", rating: 8.5 } })} className='detailsBtn'>Buy ticket</button>
+              <button onClick={() => this.setState({ selectedMovie: { title: "superman", rating: 8.5 } })} className='detailsBtn'>Details</button>
             </div>
 
           </div>
@@ -118,8 +120,11 @@ class Movies extends Component {
           <div className='showDetails'>
 
             <div className='bigMovieCard'>
+              <div className='closeDiv'>
+                <CloseCircle className="close" onClick={() => this.setState({selectedMovie: null})}></CloseCircle>
+              </div>
 
-              <img src={require("./cinema.jpg")} className='bigMovieImg'></img>
+              <img src={require("./assets/cinema.jpg")} className='bigMovieImg'></img>
 
               <h3 className='movieTitle'>Movie title</h3>
               <div className='movieData'>
@@ -130,7 +135,7 @@ class Movies extends Component {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.
               </p>
               <div className='btn'>
-                <button className='detailsBtn' onClick={()=>this.props.app.nextStep()}>Foglalás</button>
+                <button className='detailsBtn' onClick={() => this.props.app.nextStep()}>Buy ticket</button>
               </div>
 
             </div>

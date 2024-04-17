@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "2d791f98-88bd-4c3b-869d-8d0dde519f16",
+		"name": "Clapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32680796"
+	},
+	"item": [
+		{
+			"name": "/api/movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "10.0.22.16:3001/api/movies",
+					"host": [
+						"10",
+						"0",
+						"22",
+						"16"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/movies/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "10.0.22.16:3001/api/movies/1",
+					"host": [
+						"10",
+						"0",
+						"22",
+						"16"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "10.0.22.16:3001/api/products",
+					"host": [
+						"10",
+						"0",
+						"22",
+						"16"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
