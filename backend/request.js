@@ -25,10 +25,12 @@ class Request{
     
     respondJson(json, status=200){
         if (this.didRespond) return
+        this.didRespond = true
         this.res.status(status).json(json)
     }
 
-    respondMising(){
+    respondMissing(){
+        console.log("Missing something something.")
         this.respondJson({reason: "Missing fields."}, 400)
     }
 
