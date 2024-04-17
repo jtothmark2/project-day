@@ -10,8 +10,12 @@ class FoodCard extends Component {
         </div>
         <div className='big-card'>
           <img src='asd'></img>
-          <h1>Title</h1>
-          <p>Price: ár</p>
+          <p>Popcorn</p>
+          <div className='sizes'>
+            <img></img>
+            <p>Small - 2l</p>
+            <p>1000 Ft</p>
+          </div>
         </div>
       </div>
     );

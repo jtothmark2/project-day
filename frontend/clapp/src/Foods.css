@@ -51,18 +51,10 @@ ul {
     position: relative;
 }
 
-.clapboard-top {
-    position: absolute;
-    width: 250px;
-    height: 50px;
-    background-color: linear-gradient(
-        to right,
-        #000 0%,
-        #000 75%,
-        #ede9fe 75%,
-        #ede9fe 94%,
-        #f6f9ff 94%,
-        #f6f9ff 100%
-    );
-    z-index: 1;
+.big-card p {
+    color: #000;
+}
+
+.sizes {
+    background-color: var(--primary);
 }
