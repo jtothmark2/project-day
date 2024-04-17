@@ -1,5 +1,6 @@
 import './Foods.css';
 import {Component, React} from 'react';
+import { ReactComponent as CloseCircle} from './assets/close-circle.svg';
 
 class FoodCardSmall extends Component {
   render(){
@@ -9,10 +10,12 @@ class FoodCardSmall extends Component {
          <p className='movie-title-small-card'>2x Love movie</p>
        </div>
        <ul>
-         <div class="items">
-          <p>2x</p>
-           <span>X</span>
-         </div>
+         <li>
+            <div class="item">
+              <p>2x smol cola</p>
+              <CloseCircle className="close-circle"></CloseCircle>
+            </div>
+         </li>
        </ul>
       </div>
     );
