@@ -18,8 +18,8 @@ class Navbar extends Component {
         this.scrollFunction();
     }
     scrollFunction() {
-        console.log(document.body.scrollTop)
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        console.log(document.documentElement.scrollTop)
+        if (document.documentElement.scrollTop > 0) {
             document.getElementById("navbar").className = "navbar";
             this.setState({extended: false})
         } else {
@@ -40,7 +40,7 @@ class Navbar extends Component {
         </div>
         
         <div className='hero'>
-            <h1>Clapp</h1>
+            <img className='title' src={require('./assets/logo_white.png')}/>
             <img className='banner' src={require('./assets/banner.webp')}></img>
             </div>
       </div>
