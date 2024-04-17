@@ -1,5 +1,7 @@
 import './App.css';
 import {Component, React} from 'react';
+import {ReactComponent as Logo} from './assets/clapp_logo.svg';
+import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
     state={
@@ -28,10 +30,10 @@ class Navbar extends Component {
   render(){
     return (
       <div className="navbar extended" id='navbar'>
-        <img className='logo'></img>
+        <Logo className="logo"/>
         <div className='links'>
-            <h1>Filmek</h1>
-            <h1>Jegyeim</h1>
+            <Link to={"/"}><h1>Filmek</h1></Link>
+            <Link to={"/tickets"}><h1>Jegyeim</h1></Link>
         </div>
         <div className='user'>
             <h2>Hey, User!</h2>

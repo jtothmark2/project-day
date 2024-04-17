@@ -3,9 +3,6 @@
   --backrgound: #1B1B1B;
   --contrast: #F3F3F3;
 }
-.App{
- 
-}
 body {
   text-align: center;
   background-color: var(--backrgound);
@@ -73,7 +70,6 @@ body {
   z-index: 1;
 }
 .navbar .logo{
-  background-color: white;
   width: 100px;
   height: 40px;
   margin-left: 10px;
@@ -100,6 +96,10 @@ body {
   width: 200px;
   position: absolute;
   right: 0%;
+}
+a{
+  text-decoration: none;
+  color: var(--contrast);
 }
 .receipt{
 
