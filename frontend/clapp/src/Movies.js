@@ -130,7 +130,7 @@ class Movies extends Component {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.
               </p>
               <div className='btn'>
-                <button className='detailsBtn'>Foglalás</button>
+                <button className='detailsBtn' onClick={()=>this.props.app.nextStep()}>Foglalás</button>
               </div>
 
             </div>

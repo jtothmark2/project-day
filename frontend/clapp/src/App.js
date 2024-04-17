@@ -12,18 +12,21 @@ class App extends Component {
   setStep(e){
     this.setState({step: e.target.value})
   }
+  nextStep(){
+    console.log("!")
+    this.setState({step: this.state.step+1})
+  }
   render(){
     return (
       <div className="App">
-        <input style={{marginTop: 50}} onChange={(e)=>this.setStep(e)}></input>
+                
+        <Navbar/>
         {this.state.step == 0 &&
-          <Movies app={this}/>}
+          <Movies app={this} next={this.nextStep}/>}
         {this.state.step == 1 &&
           <Foods app={this}/>}
         {this.state.step == 2 &&
           <Receipt app={this}/>}
-        
-        <Navbar/>
       </div>
     );
   }
