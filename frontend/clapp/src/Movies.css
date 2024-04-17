@@ -1,5 +1,6 @@
 .moviesHeader {
   text-align: left;
+  margin-left: 20px;
 }
 
 .movies {
@@ -46,6 +47,13 @@
   border-radius: 10px;
   border: none;
   color: white;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.detailsBtn:hover {
+  scale: 1.1;
+  color: #000;
 }
 
 .btn {
@@ -99,6 +107,7 @@
 .closeDiv {
   display: flex;
   justify-content: end;
+  cursor: pointer;
 }
 
 .close {

@@ -7,10 +7,7 @@ class Foods extends Component {
   render(){
     return (
       <div>
-       <FoodCard></FoodCard>
-        
-
-       <p>small</p>
+       {/* <FoodCard></FoodCard> */}
        <FoodCardSmall></FoodCardSmall>
       </div>
     );

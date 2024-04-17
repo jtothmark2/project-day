@@ -19,7 +19,6 @@ class Movies extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Movies</h1>
 
         <h1 className='moviesHeader' >Our next movies:</h1>
 
