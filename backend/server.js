@@ -5,6 +5,7 @@ const cors = require('cors');
 const DB = require('./db')
 const MovieController = require('./movies')
 const Request = require('./request')
+const axios = require('axios')
 
 dotenv.config();
 const db = new DB()
@@ -27,7 +28,7 @@ app.post('/api/orderInfo', (req, res) => getOrderInfo(new Request(db, req, res))
 
 app.post('/api/register', (req, res) => postRegister(new Request(db, req, res)));
 app.post('/api/login', (req, res) => postLogin(new Request(db, req, res)));
-app.get('/api/user', (req, res) => getUser(new Request(db, req, res)));
+app.get('/api/user ', (req, res) => getUser(new Request(db, req, res)));
 
 app.post('/api/rate', (req, res) => postRate(new Request(db, req, res)));
 
@@ -69,36 +70,60 @@ async function load_orders(userId){
 }
 
 async function postOrders(request){
-    if (!request.validateFields(["screening_id", "tickets", "products_json", "user_id"])) return request.respondMissing()
-    if (!(await request.isLoggedIn)) return request.respond401()
+    if (!request.validateFields(["screening_id", "tickets", "products_json"])) return request.respondMissing()
+    if (!(await request.isLoggedIn)) return request.respond401()    
 
     let body = request.post;
     let sql = "UPDATE `screenings` SET `tickets_left`=((SELECT tickets_left FROM screenings WHERE id = ?) - ?) WHERE id = ?";
     let result = await db.query(sql, [body.screening_id, body.tickets, body.screening_id]);
 
-    sql = "INSERT INTO `orders`(`id`, `screening_id`, `products_json`, `user_id`, `tickets`) VALUES ('0', ?, ?, ?, ?)";
+    request.defaultFields(["coupon"])
+    let discount = 0
+    if (request.post.coupon){
+        let apiResponse = await axios.get(`https://kupon.smokup.com/coupon/3695/${request.post.coupon}`)
+        console.log(apiResponse)
+        if (apiResponse.data.hasOwnProperty("data") && apiResponse.data.data){
+            discount = 10
+        }
+    }
+
+    sql = "INSERT INTO `orders`(`id`, `screening_id`, `products_json`, `user_id`, `tickets`, `discount`) VALUES ('0', ?, ?, ?, ?, ?)";
     const stringifiedJSON = JSON.stringify(body.products_json)
     console.log(stringifiedJSON)
-    result = await db.query(sql, [body.screening_id, stringifiedJSON, body.user_id, body.tickets]);
+    result = await db.query(sql, [body.screening_id, stringifiedJSON, request.id, body.tickets, discount]);
     request.respondJson({orderId: result.insertId});
 }
 
 async function getOrderInfo(request){
-    let sql = "SELECT movies.title, screenings.date, orders.products_json, orders.tickets FROM orders INNER JOIN screenings ON orders.screening_id = screenings.id INNER JOIN movies ON screenings.movie_id = movies.id WHERE orders.id = ?"
+    if (!(await request.isLoggedIn)) return request.respond401()
+    if (!request.validateFields(["orderId"])) return request.respondMissing()
+
+    let sql = "SELECT movies.title, screenings.date, orders.products_json, orders.tickets, orders.discount FROM orders INNER JOIN screenings ON orders.screening_id = screenings.id INNER JOIN movies ON screenings.movie_id = movies.id WHERE orders.id = ?"
     let result = await db.query(sql, request.post.orderId);
 
+    const discount = (100 - result[0].discount) / 100;
     const products = JSON.parse(result[0].products_json).products
     delete result[0]['products_json'];
+    delete result[0]['discount'];
 
-    result[0].tickets *= 2000;
-    let responseRes = {...result[0]};
+    result[0].tickets *= 2000 * discount;
+    let response = {...result[0]};
 
     sql = "SELECT `name`, `price` FROM `products`";
     result = await db.query(sql);
 
-    Object.keys()
+    console.log()
+
+    for (let i = 0; i < result.length; i++) {
+        try{
+        if(products[0].hasOwnProperty(Object.values(result[i])[0])){
+            products[0][Object.values(result[i])[0]] *= Object.values(result[i])[1] * discount
+            response = {...response, ...products[0]}
+        }
+    }catch{}
+    }
     
-    request.respondJson(responseRes)
+    request.respondJson(response)
 }
 
 async function postRegister(request){
