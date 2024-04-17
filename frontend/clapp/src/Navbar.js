@@ -6,11 +6,18 @@ class Navbar extends Component {
         extended: true
     }
     componentDidMount(){
-        this.scrollFunction()
-        window.onscroll = this.scrollFunction();
+        this.handleScroll = this.handleScroll.bind(this)
+        window.addEventListener('scroll', this.handleScroll);
+    }
+    componentWillUnmount(){
+        window.removeEventListener('scroll',  this.handleScroll);
+    }
+    handleScroll(){
+        this.scrollFunction();
     }
     scrollFunction() {
-        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        console.log(document.body.scrollTop)
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
             document.getElementById("navbar").className = "navbar";
             this.setState({extended: false})
         } else {
@@ -32,7 +39,7 @@ class Navbar extends Component {
         {this.state.extended &&
         <div className='hero'>
             <h1>Clapp</h1>
-            <img className='banner'></img>
+            <img className='banner' src={require('./assets/banner.webp')}></img>
             </div>}
       </div>
     );

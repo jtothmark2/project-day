@@ -5,7 +5,7 @@ class Receipt extends Component {
   render(){
     return (
       <div className="App">
-       
+        <div className='receipt'></div>
       </div>
     );
   }
