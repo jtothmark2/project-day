@@ -1,31 +1,29 @@
 import './Foods.css';
 import {Component, React} from 'react';
 import { ReactComponent as Clap} from './assets/clap.svg';
+import { ReactComponent as Plus} from './assets/plus.svg';
 
 
 
 class FoodCard extends Component {
+  
+
   render(){
     return (
       <div className='clapboard'>
         <Clap className="clapboard-top"></Clap>
         <div className='big-card'>
           <p className='big-card-title'>Popcorn</p>
-          <div className='sizes'>
-            <img className='food-img' src={require("./assets/popcorn3.jpg")}></img>
-            <p>Small - 2l</p>
-            <p className='align-bot'>1000 Ft</p>
-          </div>
-          <div className='sizes'>
-            <img className='food-img' src={require("./assets/popcorn3.jpg")}></img>
-            <p>Small - 2l</p>
-            <p className='align-bot'>1000 Ft</p>
-          </div>
-          <div className='sizes'>
-            <img className='food-img' src={require("./assets/popcorn3.jpg")}></img>
-            <p>Small - 2l</p>
-            <p className='align-bot'>1000 Ft</p>
-          </div>
+          {this.props.menu.map((item, index) => (
+            <div class="sizes-container">
+              <div className='sizes'>
+                <img className='food-img' src={item.name.includes("popcorn") ? require("./assets/popcorn3.jpg") : require("./assets/drinks.jpg")}></img>
+                <p>{item.description}</p>
+                <p className='align-bot'>{item.price} Ft</p>
+              </div>
+              <Plus className="add-item"></Plus>
+            </div>
+          ))}
         </div>
       </div>
     );

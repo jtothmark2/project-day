@@ -12,7 +12,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
 
+.sizes:hover {
+    filter: blur(1px) brightness(0.4);
+    cursor: pointer;
+}
+
+.sizes-container {
+    position: relative;
 }
 
 .movie-title-small-card {
@@ -74,6 +82,7 @@ ul {
     display: flex;
     justify-content: left;
     height: 80px;
+    transition: all 0.3s;
 }
 
 .sizes p {
@@ -139,4 +148,12 @@ ul {
 
 .food-movie-card {
     height: 300px;
+}
+
+.add-item {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
 }

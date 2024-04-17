@@ -8,15 +8,40 @@ import { Call } from './api';
 class Foods extends Component {
 
   state = {
-    foods: []
+    selecetedFoods: [],
+    popcorns: [],
+    cups: [],
+    ticketCount: 1
   }
+
+  addSelectedFoods(food) {
+    this.state.selecetedFoods.push(food);
+  }
+
+  sendOrder() {
+    
+  }
+
+  addTicket() {
+    this.setState({ticketCount: this.state.ticketCount + 1})
+    console.log(this.state.ticketCount);
+  }
+
+  deleteTicket() {
+    if (this.state.ticketCount > 1) {
+      this.setState({ticketCount: this.state.ticketCount - 1})
+    }
+    console.log(this.state.ticketCount);
+  }
+
   componentDidMount(){
     this.GetFoods();
   }
   async GetFoods(){
-    var r = await Call('GET', 'api/foods', {})
+    var r = await Call('GET', 'api/products', {})
     console.log(r)
-    this.setState({foods: r})
+    this.setState({popcorns: r.slice(0, 3)})
+    this.setState({cups: r.slice(3)})
   }
   render(){
     return (
@@ -35,10 +60,10 @@ class Foods extends Component {
             </div>
 
           </div>
-            <FoodCardSmall></FoodCardSmall>
+            <FoodCardSmall selectedFoods={this.state.selecetedFoods} ticketCount={this.state.ticketCount} parent={this}></FoodCardSmall>
           </div>
-         <FoodCard></FoodCard>
-         <FoodCard></FoodCard>
+         <FoodCard menu={this.state.popcorns}></FoodCard>
+         <FoodCard menu={this.state.cups}></FoodCard>
       </div>
     );
   }

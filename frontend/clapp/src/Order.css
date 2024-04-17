@@ -1,0 +1,44 @@
+.order-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary);
+    position: absolute;
+}
+
+.final-order-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clapboard {
+    position: relative;
+}
+
+.infos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 165px;
+    left: 40px;
+    width: 100%;
+
+}
+
+.date {
+    right: 100px;
+}
+
+
+
+.orderDetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 100px;
+    left: 40px;
+    width: 100%;
+}

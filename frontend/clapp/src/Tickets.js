@@ -6,11 +6,13 @@ import Foods from './Foods';
 import Receipt from './Receipt';
 import Navbar from './Navbar';
 import { ReactComponent as CloseCircle } from './assets/close-circle.svg';
+import { Link } from 'react-router-dom';
 
 class Tickets extends Component {
   state = {
     step: 0,
-    review: null
+    review: null,
+    orderDetails: null
   }
   setStep(e) {
     this.setState({ step: e.target.value })
@@ -45,12 +47,15 @@ class Tickets extends Component {
             </div>
 
             <div className='myReview'>
-              <p>My review:</p>
+              <p><strong>My review:</strong></p>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
             </div>
 
-            <div className='btn'>
+            <div className='btn myTicketBtns'>
               <button onClick={() => this.setState({ review: { title: "myReview" } })} className='detailsBtn seenDetailsBtn'>Add review</button>
+              <Link to={'/order'}>
+                <button className='detailsBtn seenDetailsBtn'>Order details</button>
+              </Link>
             </div>
 
           </div>
