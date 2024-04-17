@@ -5,6 +5,7 @@
     background-color:  var(--primary);
     border-radius: 10px;
     padding: 10px;
+    margin-top: 30px;
 }
 
 .item {
@@ -24,6 +25,9 @@
 
 .underline {
     border-bottom: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 ul {
@@ -31,6 +35,7 @@ ul {
     margin: 0;
     padding: 0;
     padding-left: 20px;
+    margin-left: 30px;
 }
 
 .close-circle {
@@ -38,24 +43,23 @@ ul {
     width: 35px;
 }
 
-
-
 .big-card {
     background-color: white;
     border-radius: 10px;
     height: 350px;
     width: 325px;
+    margin-top: 100px;
 }
 
 .clapboard {
-    position: absolute;
+    position: relative;
 }
 
 .clapboard-top {
     transform: rotate(-15deg);
     height: 40px;
-    position: relative;
-    top: -36px;
+    position: absolute;
+    top: 20px;
     left: -8px;
 }
 
@@ -88,4 +92,51 @@ ul {
     margin: 0;
     font-weight: bold;
     font-size: 20px;
+}
+
+.plus {
+    width: 25px;
+    height: 25px;
+    padding-left: 10px;
+}
+
+.minus {
+    width: 50px;
+    height: 50px;
+    padding-right: 10px;
+}
+
+.small-minus {
+    width: 30px;
+    height: 30px;
+    padding-right: 10px;
+}
+
+.food-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.your-order {
+    font-size: 20px;
+}
+
+.food-img {
+    mask: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 0.5%,
+    rgba(0, 0, 0, 1) 45%,
+    rgba(0, 0, 0, 0) 90.5%
+  );
+}
+
+.your-order-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.food-movie-card {
+    height: 300px;
 }
