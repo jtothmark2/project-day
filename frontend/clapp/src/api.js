@@ -1,6 +1,6 @@
 const ip = "10.0.22.16:3001";
 
-
+//Frontenden: result = await Call("GET", "api/movies", {}) vagy result = await Call("POST", "api/post", {adat: 1, nev: "valami"})
 export async function Call(rest,route, args){
     var requestOptions = {};
     var myHeaders = new Headers();
