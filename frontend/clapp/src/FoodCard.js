@@ -1,20 +1,19 @@
 import './Foods.css';
 import {Component, React} from 'react';
+import { ReactComponent as Clap} from './assets/clap.svg';
+
 
 class FoodCard extends Component {
   render(){
     return (
       <div className='clapboard'>
-        <div className='clapboard-top'>
-
-        </div>
+        <Clap className="clapboard-top"></Clap>
         <div className='big-card'>
-          <img src='asd'></img>
-          <p>Popcorn</p>
+          <p className='big-card-title'>Popcorn</p>
           <div className='sizes'>
-            <img></img>
+            <Clap></Clap>
             <p>Small - 2l</p>
-            <p>1000 Ft</p>
+            <p className='align-bot'>1000 Ft</p>
           </div>
         </div>
       </div>
