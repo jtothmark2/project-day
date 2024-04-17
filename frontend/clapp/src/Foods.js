@@ -2,15 +2,21 @@ import FoodCard from './FoodCard';
 import FoodCardSmall from './FoodCardSmall';
 import './Foods.css';
 import {Component, React} from 'react';
+import { Call } from './api';
+
 
 class Foods extends Component {
 
-  componentDidMount() {
-    
+  state = {
+    foods: []
   }
-
-  getFoods() {
-    var r = a;
+  componentDidMount(){
+    this.GetFoods();
+  }
+  async GetFoods(){
+    var r = await Call('GET', 'api/foods', {})
+    console.log(r)
+    this.setState({foods: r})
   }
   render(){
     return (
