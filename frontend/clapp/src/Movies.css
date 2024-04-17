@@ -1,0 +1,38 @@
+.moviesHeader {
+  text-align: left;
+}
+
+.movieCard {
+  height: 400px;
+  width: 250px;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  text-align: left;
+  padding: 20px;
+}
+
+.movieData {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailsBtn {
+  padding: 10px 20px;
+  background-color: var(--primary);
+  border-radius: 10px;
+  border: none;
+  color: white;
+}
+
+.btn {
+  display:  flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movieImg {
+  width: 290px;
+  margin: -20px;
+  border-radius: 10px 10px 0 0;
+}
