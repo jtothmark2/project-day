@@ -104,6 +104,11 @@ body {
 a{
   text-decoration: none;
   color: var(--contrast);
+  transition: 0.3s;
+}
+a:hover{
+  transform: scale(1.1);
+  color: rgb(129, 20, 20);
 }
 .receipt{
 

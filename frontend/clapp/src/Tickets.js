@@ -1,4 +1,5 @@
 import './App.css';
+import './Tickets.css';
 import { Component, React } from 'react';
 import Movies from './Movies';
 import Foods from './Foods';
@@ -24,7 +25,7 @@ class Tickets extends Component {
         <h1 className='moviesHeader' >Already seen:</h1>
 
         <div className='movies'>
-          <div className='movieCard'>
+          <div className='seenMovieCard movieCard'>
 
             <img src={require("./assets/cinema.jpg")} className='movieImg'></img>
 
@@ -35,14 +36,19 @@ class Tickets extends Component {
               <p>9/10</p>
             </div>
 
-            <h3 className='movieTitle'>Movie title</h3>
+            <h3 className='movieTitle seenMovieTitle'>Movie title</h3>
             <div className='movieData'>
               <p> genre - genre</p>
               <p>120 min.</p>
             </div>
+
+            <div className='myReview'>
+              <p>My review:</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
+            </div>
           
             <div className='btn'>
-              <button onClick={() => this.setState({ selectedMovie: { title: "superman", rating: 8.5 } })} className='detailsBtn'>Details</button>
+              <button onClick={() => this.setState({ selectedMovie: { title: "superman", rating: 8.5 } })} className='detailsBtn seenDetailsBtn'>Add review</button>
             </div>
 
           </div>

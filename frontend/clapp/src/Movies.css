@@ -21,19 +21,22 @@
   color: black;
   text-align: left;
   padding: 20px;
-  transition: all 0.25s;
-  
+  overflow: hidden;
 }
-
-.movieCard:hover {
-  scale: 1.05;
+.movieCard:hover .movieImg{
+  height: 0%;
+  opacity: 0;
 }
-
+.movieCard .desc{
+  max-height: 250px;
+  overflow-y: auto;
+}
 .movieTitle {
-  margin-top: 35px;
+  margin-top: 0px;
 }
 
 .movieData {
+  margin-top: -30px;
   display: flex;
   justify-content: space-between;
 }
@@ -60,9 +63,12 @@
 }
 
 .movieImg {
-  width: 290px;
-  margin: -20px;
-  border-radius: 10px 10px 0 0;
+  height: 90%;
+  width: 100%;
+  margin: 0px;
+  border-radius: 10px;
+  z-index: -1;
+  transition: 0.5s;
 }
 
 .bigMovieCard {
@@ -78,11 +84,14 @@
 }
 
 .bigMovieImg {
-  width: 540px;
-  margin: -20px;
-  border-radius: 10px 10px 0 0;
+  width: 80%;
+  height: 80%;
+  margin-left: 10%;
+  border-radius: 10px;
 }
-
+.bigMovieCard .movieTitle{
+  margin-top: 30px;
+}
 .showDetails {
   display: flex;
   align-items: center;
@@ -108,4 +117,10 @@
   position: absolute;
   height: 50px;
   width: 50px;
+}
+.close-invert {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  filter: invert(1);
 }

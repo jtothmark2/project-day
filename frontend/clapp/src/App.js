@@ -11,12 +11,9 @@ class App extends Component {
     step: 0
   }
   componentDidMount(){
-    this.GetMovies()
+    
   }
-  async GetMovies(){
-    var r = await Call('GET', 'api/movies', {})
-    console.log(r)
-  }
+  
   setStep(e){
     this.setState({step: e.target.value})
   }

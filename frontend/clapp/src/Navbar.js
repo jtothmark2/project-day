@@ -32,8 +32,8 @@ class Navbar extends Component {
       <div className="navbar extended" id='navbar'>
         <Logo className="logo"/>
         <div className='links'>
-            <Link to={"/"}><h1>Filmek</h1></Link>
-            <Link to={"/tickets"}><h1>Jegyeim</h1></Link>
+            <Link to={"/"}><h1>Movies</h1></Link>
+            <Link to={"/tickets"}><h1>My Tickets</h1></Link>
         </div>
         <div className='user'>
             <h2>Hey, User!</h2>
