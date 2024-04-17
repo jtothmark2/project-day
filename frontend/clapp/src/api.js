@@ -6,6 +6,7 @@ export async function Call(rest,route, args){
     var myHeaders = new Headers();
     var raw = JSON.stringify(args);
     if(rest === "GET"){
+        myHeaders.append("X-Token", args.token);
          requestOptions = {
             method: "GET",
             redirect: "follow"
@@ -13,6 +14,7 @@ export async function Call(rest,route, args){
     }
     if(rest === "POST"){
         myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("X-Token", args.token);
         requestOptions = {
             method: "POST",
             headers: myHeaders,
