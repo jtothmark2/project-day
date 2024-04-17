@@ -21,17 +21,25 @@ class Order extends Component {
       <div className='order-container'>
         <div className='your-order-container'>
           <h1>Your final order:</h1>
-          <img className='clipboard' src={require('./assets/clip_board.jpg')}/>
-          <div className='infos'>
-            <h1>Név</h1>
-            <h1>2022.12.01</h1>
-            <ul>
-              
-            </ul>
+          <div className='clapboard'>
+            <img   src={require('./assets/clap_board.png')} />
+            <div className='infos'>
+              <h1 className='name'>Balogh Levente</h1>
+              <h1 className='date'>2022.12.01</h1>
+            </div>
+            <div className='orderDetails'>
+              <div className='qr'>qr kód</div>
+              <ul className='orders'>
+                <li>sadasdasd</li>
+                <li>sadasdasd</li>
+                <li>sadasdasd</li>
+                <li>sadasdasd</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div className='final-order-container'>
-        </div>
+
+
       </div>
     );
   }
