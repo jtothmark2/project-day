@@ -8,9 +8,13 @@ class App extends Component {
   state = {
     step: 0
   }
+  setStep(e){
+    this.setState({step: e.target.value})
+  }
   render(){
     return (
       <div className="App">
+        <input onChange={(e)=>this.setStep(e)}></input>
         {this.state.step == 0 &&
           <Movies app={this}/>}
         {this.state.step == 1 &&
