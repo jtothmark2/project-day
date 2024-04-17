@@ -15,6 +15,7 @@ class Login extends Component {
   async Login(){
     var r = await Call('POST', 'api/login', {email: this.state.email, password: this.state.password})
     if(r.token != undefined){
+      localStorage.setItem('token', r.token)
       const { navigate } = this.props;
       navigate("/");
     }

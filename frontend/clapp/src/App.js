@@ -5,6 +5,7 @@ import Foods from './Foods';
 import Receipt from './Receipt';
 import Navbar from './Navbar';
 import { Call } from './api';
+import AuthRedirect from './authRedirect';
 
 class App extends Component {
   state = {
@@ -36,4 +37,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default AuthRedirect(App);

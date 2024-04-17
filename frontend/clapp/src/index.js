@@ -7,6 +7,7 @@ import Tickets from './Tickets';
 import Login from './Login';
 import Register from './Register';
 import history from './history';
+import Order from './Order';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,7 @@ root.render(
     <Route exact={true} path="/login" element={<Login />} />
     <Route exact={true} path="/register" element={<Register />} />
     
+    <Route exact={true} path="/order" element={<Order />} />
   </Routes>
 </BrowserRouter>
 );
