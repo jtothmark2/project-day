@@ -30,6 +30,7 @@ class Request{
     }
 
     respondMissing(){
+        console.log("Missing something something.")
         this.respondJson({reason: "Missing fields."}, 400)
     }
 
