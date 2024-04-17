@@ -9,6 +9,7 @@ body {
   color: var(--contrast);
   font-family: 'Roboto', sans-serif;
   margin: 0px !important;
+  user-select: none;
 }
 .navbar{
   width: 100%;
@@ -66,11 +67,11 @@ body {
     rgba(0, 0, 0, 0) 70.5%
   );
 }
-.navbar.extended .hero h1{
-  font-size: 80px;
+.navbar.extended .hero .title{
+  width: 300px;
   position: absolute;
-  left: 0%;
-  top: 35%;
+  left: 1%;
+  top: 40%;
   z-index: 1;
 }
 .navbar .logo{
@@ -109,6 +110,25 @@ a{
 a:hover{
   transform: scale(1.1);
   color: rgb(129, 20, 20);
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:white;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 .receipt{
 

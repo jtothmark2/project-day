@@ -27,22 +27,22 @@ class Movies extends Component {
             this.state.movies.map((movie,index) => (
               <div key={index} className='movieCard'>
 
-            <img src={require(`./assets${movie.img_url}`)} className='movieImg'></img>
+              <img src={require(`./assets${movie.img_url}`)} className='movieImg'></img>
 
 
-            <h3 className='movieTitle'>{movie.title}</h3>
-            <div className='movieData'>
-              <p>{movie.genre}</p>
-              <p>{movie.length}</p>
+              <h3 className='movieTitle'>{movie.title}</h3>
+              <div className='movieData'>
+                <p>{movie.genre}</p>
+                <p>{movie.length}</p>
+              </div>
+              <p className='desc'>
+                {movie.description}
+              </p>
+              <div className='btn'>
+                <button onClick={() => this.setState({ selectedMovie: movie})} className='detailsBtn'>Details</button>
+              </div>
+
             </div>
-            <p className='desc'>
-              {movie.description}
-            </p>
-            <div className='btn'>
-              <button onClick={() => this.setState({ selectedMovie: movie})} className='detailsBtn'>Details</button>
-            </div>
-
-          </div>
             ))
           }
           
