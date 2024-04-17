@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import {Component, React} from 'react';
+import Movies from './Movies';
+import Foods from './Foods';
+import Receipt from './Receipt';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    step: 0
+  }
+  render(){
+    return (
+      <div className="App">
+        {this.state.step == 0 &&
+          <Movies app={this}/>}
+        {this.state.step == 1 &&
+          <Foods app={this}/>}
+        {this.state.step == 2 &&
+          <Receipt app={this}/>}
+      </div>
+    );
+  }
 }
-
 export default App;
