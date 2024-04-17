@@ -10,20 +10,20 @@ class FoodCardSmall extends Component {
       <div className='small-card'>
        <div class="underline">
           <Plus onClick={()=>this.props.parent.addTicket()} className="plus"></Plus>
-          <p className='movie-title-small-card'>{this.props.ticketCount} x Love movie</p>
+          <p className='movie-title-small-card'>{this.props.ticketCount} x {this.props.selectedMovie}</p>
           <Minus onClick={()=>this.props.parent.deleteTicket()} className="minus"></Minus>
        </div>
        <ul>
-
-       {this.props.selectedFoods.map((item, index) => (
+      <div style={{maxHeight: 300, overflowY: 'auto'}}>
+       {this.props.order.map((item, index) => (
             <li>
               <div class="item">
-                <p>asd</p>
-                <Minus className="small-minus"></Minus>
+                <p>{item.description}</p>
+                <p>{item.price} Ft</p>
               </div>
             </li>
           ))}
-         
+         </div>
        </ul>
       </div>
     );
