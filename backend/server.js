@@ -96,7 +96,7 @@ async function getOrderInfo(request){
     sql = "SELECT `name`, `price` FROM `products`";
     result = await db.query(sql);
 
-    O
+    Object.keys()
     
     request.respondJson(responseRes)
 }
