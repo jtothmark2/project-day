@@ -16,6 +16,7 @@ class FoodCardSmall extends Component {
               <CloseCircle className="close-circle"></CloseCircle>
             </div>
          </li>
+         
        </ul>
       </div>
     );
