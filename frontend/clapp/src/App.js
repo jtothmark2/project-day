@@ -4,10 +4,18 @@ import Movies from './Movies';
 import Foods from './Foods';
 import Receipt from './Receipt';
 import Navbar from './Navbar';
+import { Call } from './api';
 
 class App extends Component {
   state = {
     step: 0
+  }
+  componentDidMount(){
+    this.GetMovies()
+  }
+  async GetMovies(){
+    var r = await Call('GET', 'api/movies', {})
+    console.log(r)
   }
   setStep(e){
     this.setState({step: e.target.value})
