@@ -14,7 +14,7 @@
 }
 
 .movieCard {
-  height: 400px;
+  height: 420px;
   width: 250px;
   background-color: white;
   border-radius: 10px;
@@ -45,7 +45,7 @@
 }
 
 .movieData {
-  margin-top: -30px;
+  margin-top: -45px;
   display: flex;
   justify-content: space-between;
 }

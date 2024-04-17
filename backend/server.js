@@ -23,9 +23,10 @@ app.get('/api/movies/:id', (req, res) => listMovieInfo(new Request(db, req, res)
 app.get('/api/products', (req, res) => getProducts(new Request(db, req, res)));
 app.get('/api/orders', (req, res) => getOrders(new Request(db, req, res)));
 app.post('/api/order', (req, res) => postOrders(new Request(db, req, res)));
+app.post('/api/orderInfo', (req, res) => getOrderInfo(new Request(db, req, res)));
 
-app.post('/api/register', (req, res) => postRegister(new Request(db, req, res)))
-app.post('/api/login', (req, res) => postLogin(new Request(db, req, res)))
+app.post('/api/register', (req, res) => postRegister(new Request(db, req, res)));
+app.post('/api/login', (req, res) => postLogin(new Request(db, req, res)));
 
 app.post('/api/rate', (req, res) => postRate(new Request(db, req, res)));
 
@@ -81,6 +82,21 @@ async function postOrders(request){
     request.respondJson({orderId: result.insertId});
 }
 
+async function getOrderInfo(request){
+    let sql = "SELECT movies.title, screenings.date, orders.products_json, orders.tickets FROM orders INNER JOIN screenings ON orders.screening_id = screenings.id INNER JOIN movies ON screenings.movie_id = movies.id WHERE orders.id = ?"
+    let result = await db.query(sql, request.post.orderId);
+
+    const products = JSON.parse(result[0].products_json).products
+    delete result[0]['products_json'];
+    products[0]['tickets'] *= 2000;
+
+
+    sql = "SELECT `name`, `price` FROM `products`";
+    Object.assign(result, await db.query(sql));
+    
+    request.respondJson(result)
+}
+
 async function postRegister(request){
     if (!request.validateFields(["username", "email", "password"])) return request.respondMissing()
     
@@ -117,8 +133,30 @@ async function postRate(request){
     if (!(await request.isLoggedIn)) return request.respond401()
     request.defaultFields(["comment"])
     
-    const sql = "SELECT id FROM rating WHERE user_id=?"
+
+    let sql = "SELECT * FROM orders INNER JOIN screenings ON orders.screening_id=screenings.id WHERE screenings.movie_id=? AND orders.user_id=?"
+    let result = await db.query(sql, [request.post.movie_id, request.id])
+    if (result.length == 0) request.respondJson({reason: "You can only rate movies that you watched!"}, 400)
+
+    sql = "SELECT id FROM ratings WHERE user_id=? AND movie_id=?"
+    result = await db.query(sql, [request.id, request.post.movie_id], true)
+    if (result) {
+        sql = "DELETE FROM ratings WHERE id=?"
+        db.query(sql, result.id)
+    }
+    sql = "INSERT INTO ratings (movie_id, user_id, points, comment) VALUES (?, ?, ?, ?)"
+    await db.query(sql, [request.post.movie_id, request.id, request.post.points, request.post.comment])
+
+    sql = "SELECT AVG(Cast(points as Float)) as average FROM ratings WHERE movie_id=?"
+    result = await db.query(sql, [request.post.movie_id], true)
+    const averageRating = result.average
+
+    sql = "UPDATE movies SET rating=? WHERE id=?"
+    db.query(sql, [averageRating, request.post.movie_id])
+
+    request.respondJson({success: true})
 }
+
 
 
 

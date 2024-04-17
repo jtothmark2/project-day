@@ -65,6 +65,10 @@
     margin: 50px 10px;
 }
 
+.seenMovieImg {
+    height: 85%;
+    width: inherit;
+}
 .allData {
     width: 100%;
     margin: 10px;
@@ -89,8 +93,8 @@
     margin-top: 20px;
 }
 
-.movieData p {
-    margin-top: 35px;
+.movieData {
+    margin-top: 15px;
 }
 
 .reviewStars {
