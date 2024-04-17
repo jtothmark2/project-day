@@ -20,9 +20,15 @@ class Order extends Component {
     return (
       <div className='order-container'>
         <div className='your-order-container'>
-          <p>Your final order:</p>
-          <img src={require('./assets/clip_board.jpg')}/>
-
+          <h1>Your final order:</h1>
+          <img className='clipboard' src={require('./assets/clip_board.jpg')}/>
+          <div className='infos'>
+            <h1>Név</h1>
+            <h1>2022.12.01</h1>
+            <ul>
+              
+            </ul>
+          </div>
         </div>
         <div className='final-order-container'>
         </div>
