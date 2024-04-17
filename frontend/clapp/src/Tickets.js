@@ -53,7 +53,7 @@ class Tickets extends Component {
 
             <div className='btn myTicketBtns'>
               <button onClick={() => this.setState({ review: { title: "myReview" } })} className='detailsBtn seenDetailsBtn'>Add review</button>
-              <Link to={'/login'}>
+              <Link to={'/order'}>
                 <button className='detailsBtn seenDetailsBtn'>Order details</button>
               </Link>
             </div>
