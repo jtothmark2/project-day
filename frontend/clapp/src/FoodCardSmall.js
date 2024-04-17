@@ -9,10 +9,12 @@ class FoodCardSmall extends Component {
          <p className='movie-title-small-card'>2x Love movie</p>
        </div>
        <ul>
-         <div class="items">
-          <p>2x</p>
-           <span>X</span>
-         </div>
+         <li>
+            <div class="item">
+              <p>2x smol cola</p>
+              <img src='./close-circle-svgrepo-com.svg'></img>
+            </div>
+         </li>
        </ul>
       </div>
     );
