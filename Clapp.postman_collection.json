@@ -99,6 +99,34 @@
 			"response": []
 		},
 		{
+			"name": "/api/user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Token",
+						"value": "9a8b599b2a9006697ead20b7b62f03c2226c55f2985d2f771e6aa9ccaf8611d8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "10.0.22.16:3001/api/user",
+					"host": [
+						"10",
+						"0",
+						"22",
+						"16"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "/api/register",
 			"request": {
 				"method": "POST",

@@ -27,6 +27,7 @@ app.post('/api/orderInfo', (req, res) => getOrderInfo(new Request(db, req, res))
 
 app.post('/api/register', (req, res) => postRegister(new Request(db, req, res)));
 app.post('/api/login', (req, res) => postLogin(new Request(db, req, res)));
+app.get('/api/user', (req, res) => getUser(new Request(db, req, res)));
 
 app.post('/api/rate', (req, res) => postRate(new Request(db, req, res)));
 
@@ -88,13 +89,16 @@ async function getOrderInfo(request){
 
     const products = JSON.parse(result[0].products_json).products
     delete result[0]['products_json'];
-    products[0]['tickets'] *= 2000;
 
+    result[0].tickets *= 2000;
+    let responseRes = {...result[0]};
 
     sql = "SELECT `name`, `price` FROM `products`";
-    Object.assign(result, await db.query(sql));
+    result = await db.query(sql);
+
+    Object.keys()
     
-    request.respondJson(result)
+    request.respondJson(responseRes)
 }
 
 async function postRegister(request){
@@ -112,7 +116,10 @@ async function postRegister(request){
 }
 
 async function postLogin(request){
-    if (!request.validateFields(["email", "password"])) return request.respondMissing()
+    if (!request.validateFields(["email", "password"])){
+        console.log(request.post)
+        return request.respondMissing()
+    } 
 
     let sql = "SELECT id, password FROM users WHERE email=?"
     let result = await db.query(sql, request.post.email, true)
@@ -155,6 +162,13 @@ async function postRate(request){
     db.query(sql, [averageRating, request.post.movie_id])
 
     request.respondJson({success: true})
+}
+
+async function getUser(request){
+    if (!(await request.isLoggedIn)) return request.respond401()
+    let sql = "SELECT username, email FROM users WHERE id=?"
+    let result = await db.query(sql, request.id, true)
+    request.respondJson({username: result.username, email: result.email})
 }
 
 
