@@ -15,14 +15,15 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <input onChange={(e)=>this.setStep(e)}></input>
+        <input style={{marginTop: 50}} onChange={(e)=>this.setStep(e)}></input>
         {this.state.step == 0 &&
           <Movies app={this}/>}
         {this.state.step == 1 &&
           <Foods app={this}/>}
         {this.state.step == 2 &&
           <Receipt app={this}/>}
-          <Navbar/>
+        
+        <Navbar/>
       </div>
     );
   }
