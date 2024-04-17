@@ -1,0 +1,26 @@
+.small-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 25%;
+    height: 40%;
+    background-color:  var(--primary);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie-title-small-card {
+    font-size: 20px;
+    margin: 0;
+    margin-left: 5%;
+    padding: 0;
+    text-align: left;
+}
+
+.underline {
+    border-bottom: 1px solid white;
+}

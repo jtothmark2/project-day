@@ -4,10 +4,16 @@ import {Component, React} from 'react';
 class FoodCardSmall extends Component {
   render(){
     return (
-      <div>
-       <img src='asd'></img>
-       <h1>Title</h1>
-       <p>Price: ár</p>
+      <div className='small-card'>
+       <div class="underline">
+         <p className='movie-title-small-card'>2x Love movie</p>
+       </div>
+       <ul>
+         <div class="items">
+          <p>2x</p>
+           <span>X</span>
+         </div>
+       </ul>
       </div>
     );
   }
