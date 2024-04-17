@@ -7,6 +7,7 @@ import Tickets from './Tickets';
 import Login from './Login';
 import Register from './Register';
 import history from './history';
+import Order from './Order';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
