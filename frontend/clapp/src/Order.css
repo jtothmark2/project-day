@@ -16,29 +16,20 @@
     position: relative;
 }
 
-.infos {
+.clapboard .infos {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 165px;
-    left: 40px;
-    width: 100%;
-
 }
-
-.date {
-    right: 100px;
-}
-
-
 
 .orderDetails {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 100px;
-    left: 40px;
-    width: 100%;
+}
+
+.name {
+
 }

@@ -1,6 +1,6 @@
 import './Order.css';
 import { Component, React } from 'react';
-// import { Call } from './api';
+
 
 
 class Order extends Component {
@@ -18,14 +18,15 @@ class Order extends Component {
   // }
   render() {
     return (
-      <div className='order-container'>
+      <div>
+        
+        <div className='order-container'>
         <div className='your-order-container'>
           <h1>Your final order:</h1>
           <div className='clapboard'>
             <img   src={require('./assets/clap_board.png')} />
             <div className='infos'>
-              <h1 className='name'>Balogh Levente</h1>
-              <h1 className='date'>2022.12.01</h1>
+              <h1 className='name'>Kis Levente - 2022.12.01</h1>
             </div>
             <div className='orderDetails'>
               <div className='qr'>qr kód</div>
@@ -41,6 +42,8 @@ class Order extends Component {
 
 
       </div>
+      </div>
+      
     );
   }
 }
