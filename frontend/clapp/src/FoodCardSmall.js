@@ -1,5 +1,6 @@
 import './Foods.css';
 import {Component, React} from 'react';
+import { ReactComponent as CloseCircle} from './assets/close-circle.svg';
 
 class FoodCardSmall extends Component {
   render(){
@@ -12,7 +13,7 @@ class FoodCardSmall extends Component {
          <li>
             <div class="item">
               <p>2x smol cola</p>
-              <img src='./close-circle-svgrepo-com.svg'></img>
+              <CloseCircle className="close-circle"></CloseCircle>
             </div>
          </li>
        </ul>
