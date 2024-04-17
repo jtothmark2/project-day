@@ -12,6 +12,7 @@ export async function Call(rest,route, args){
           }; 
     }
     if(rest === "POST"){
+        myHeaders.append("Content-Type", "application/json");
         requestOptions = {
             method: "POST",
             headers: myHeaders,

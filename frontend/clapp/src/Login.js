@@ -3,7 +3,13 @@ import {Component, React} from 'react';
 import { Call } from './api';
 import { Link } from 'react-router-dom';
 import {ReactComponent as Logo} from './assets/clapp_logo.svg';
+import { useNavigate } from "react-router-dom";
 
+const LoginWrapper = () => {
+  const navigate = useNavigate();
+
+  return <Login navigate={navigate} />;
+};
 class Login extends Component {
   state = {
     email: '',
@@ -44,4 +50,4 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+export default LoginWrapper;

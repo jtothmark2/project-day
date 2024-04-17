@@ -1,5 +1,5 @@
 import './Order.css';
-import {Component, React} from 'react';
+import { Component, React } from 'react';
 // import { Call } from './api';
 
 
@@ -16,17 +16,17 @@ class Order extends Component {
   //   console.log(r)
   //   this.setState({foods: r})
   // }
-  render(){
+  render() {
     return (
-    <div className='order-container'>
-      <div className='your-order-container'>
-        <p className='your-order'>Your final order:</p>
-
+      <div className='order-container'>
+        <div className='your-order-container'>
+          <p>Your final order:</p>
+          <img src={require('./assets/clip_board.jpg')}/>
 
         </div>
         <div className='final-order-container'>
-          </div>
-    </div>
+        </div>
+      </div>
     );
   }
 }

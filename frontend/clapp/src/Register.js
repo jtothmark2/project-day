@@ -3,7 +3,13 @@ import {Component, React} from 'react';
 import { Call } from './api';
 import { Link } from 'react-router-dom';
 import {ReactComponent as Logo} from './assets/clapp_logo.svg';
+import { useNavigate } from "react-router-dom";
 
+const RegisterWrapper = () => {
+  const navigate = useNavigate();
+
+  return <Register navigate={navigate} />;
+};
 class Register extends Component {
   state={
     email: '',
@@ -51,4 +57,4 @@ class Register extends Component {
     );
   }
 }
-export default Register;
+export default RegisterWrapper;
