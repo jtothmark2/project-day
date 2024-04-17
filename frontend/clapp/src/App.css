@@ -1,3 +1,10 @@
-.App {
+:root{
+  --primary: #C13030;
+  --backrgound: #1B1B1B;
+  --contrast: #F3F3F3;
+}
+body {
   text-align: center;
+  background-color: var(--backrgound);
+  color: var(--contrast);
 }
