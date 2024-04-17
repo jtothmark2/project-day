@@ -6,10 +6,11 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Tickets from './Tickets';
 import Login from './Login';
 import Register from './Register';
+import history from './history';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter history={history}>
   <Routes>
     <Route exact={true} path="/" element={<App />} />
     <Route exact={true} path="/tickets" element={<Tickets />} />
