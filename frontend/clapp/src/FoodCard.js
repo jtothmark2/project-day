@@ -12,17 +12,17 @@ class FoodCard extends Component {
         <div className='big-card'>
           <p className='big-card-title'>Popcorn</p>
           <div className='sizes'>
-            <img src={require("./assets/popcorn3.jpg")}></img>
+            <img className='food-img' src={require("./assets/popcorn3.jpg")}></img>
             <p>Small - 2l</p>
             <p className='align-bot'>1000 Ft</p>
           </div>
           <div className='sizes'>
-            <img src={require("./assets/popcorn3.jpg")}></img>
+            <img className='food-img' src={require("./assets/popcorn3.jpg")}></img>
             <p>Small - 2l</p>
             <p className='align-bot'>1000 Ft</p>
           </div>
           <div className='sizes'>
-            <img src={require("./assets/popcorn3.jpg")}></img>
+            <img className='food-img' src={require("./assets/popcorn3.jpg")}></img>
             <p>Small - 2l</p>
             <p className='align-bot'>1000 Ft</p>
           </div>

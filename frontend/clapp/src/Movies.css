@@ -22,10 +22,19 @@
   text-align: left;
   padding: 20px;
   overflow: hidden;
+  transition: 0.3s;
 }
 .movieCard:hover .movieImg{
   height: 0%;
   opacity: 0;
+}
+.movieCard:hover{
+  transform: scale(1.1);
+  background-color: var(--primary);
+  color: white;
+}
+.movieCard .detailsBtn{
+  border: 1px solid white;
 }
 .movieCard .desc{
   max-height: 250px;
@@ -53,7 +62,6 @@
 
 .detailsBtn:hover {
   scale: 1.1;
-  color: #000;
 }
 
 .btn {
@@ -66,7 +74,7 @@
   height: 90%;
   width: 100%;
   margin: 0px;
-  border-radius: 10px;
+  border-radius: 5px;
   z-index: -1;
   transition: 0.5s;
 }

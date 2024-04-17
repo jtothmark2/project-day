@@ -1,19 +1,22 @@
 import './Foods.css';
 import {Component, React} from 'react';
-import { ReactComponent as CloseCircle} from './assets/close-circle.svg';
+import { ReactComponent as Plus} from './assets/plus.svg';
+import { ReactComponent as Minus} from './assets/minus.svg';
 
 class FoodCardSmall extends Component {
   render(){
     return (
       <div className='small-card'>
        <div class="underline">
-         <p className='movie-title-small-card'>2x Love movie</p>
+          <Plus className="plus"></Plus>
+          <p className='movie-title-small-card'>2x Love movie</p>
+          <Minus className="minus"></Minus>
        </div>
        <ul>
          <li>
             <div class="item">
               <p>2x smol cola</p>
-              <CloseCircle className="close-circle"></CloseCircle>
+              <Minus className="small-minus"></Minus>
             </div>
          </li>
          
