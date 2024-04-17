@@ -21,6 +21,9 @@
     justify-content: center;
     align-items: center;
     position: absolute;
+    top: 160px;
+    left: 40px;
+
 }
 
 .orderDetails {
@@ -28,8 +31,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-}
-
-.name {
+    bottom: 100px;
+    left: 40px;
 
 }
