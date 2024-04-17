@@ -31,4 +31,38 @@ ul {
     margin: 0;
     padding: 0;
     padding-left: 20px;
-} 
+}
+
+.close-circle {
+    height: 35px;
+    width: 35px;
+}
+
+
+
+.big-card {
+    background-color: white;
+    border-radius: 10px;
+    height: 350px;
+    width: 250px;
+}
+
+.clapboard {
+    position: relative;
+}
+
+.clapboard-top {
+    position: absolute;
+    width: 250px;
+    height: 50px;
+    background-color: linear-gradient(
+        to right,
+        #000 0%,
+        #000 75%,
+        #ede9fe 75%,
+        #ede9fe 94%,
+        #f6f9ff 94%,
+        #f6f9ff 100%
+    );
+    z-index: 1;
+}
