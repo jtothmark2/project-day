@@ -43,7 +43,7 @@ async function getProducts(request){
     return request.respondJson(allProducts);
  }
 
- async function load_products(){
+async function load_products(){
     let sql = "SELECT * FROM products"
     let result = await db.query(sql)
     

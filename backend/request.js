@@ -1,3 +1,6 @@
+const bcrypt = require('bcrypt')
+const crypto = require('crypto')
+
 class Request{
     constructor(db, req, res){
         this.db = db
@@ -28,6 +31,10 @@ class Request{
     async respondJson(json, status=200){
         if (this.didRespond) return
         this.res.status(status).json(json)
+    }
+
+    async generateToken(length=64){
+        
     }
 }
 module.exports = Request
