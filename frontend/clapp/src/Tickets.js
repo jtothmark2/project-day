@@ -24,12 +24,12 @@ class Tickets extends Component {
       <div className="App">
         <Navbar />
 
-        <h1 className='moviesHeader' >Already seen:</h1>
+        <h1 className='moviesHeader' >My tickets:</h1>
 
         <div className='movies'>
           <div className='seenMovieCard movieCard'>
 
-            <img src={require("./assets/cinema.jpg")} className='movieImg'></img>
+            <img src={require("./assets/cinema.jpg")} className='seenMovieImg movieImg'></img>
 
             <div className='rating'>
               <div className='stars'>
@@ -39,9 +39,9 @@ class Tickets extends Component {
             </div>
 
             <h3 className='movieTitle seenMovieTitle'>Movie title</h3>
-            <div className='movieData'>
-              <p> genre - genre</p>
-              <p>120 min.</p>
+            <div>
+              <p className='movieData'> genre - genre</p>
+              <p className='movieData'>120 min.</p>
             </div>
 
             <div className='myReview'>
