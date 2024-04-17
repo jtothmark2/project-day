@@ -1,7 +1,7 @@
 import './Foods.css';
 import {Component, React} from 'react';
 
-class FoodCard extends Component {
+class FoodCardSmall extends Component {
   render(){
     return (
       <div>
@@ -12,4 +12,4 @@ class FoodCard extends Component {
     );
   }
 }
-export default FoodCard;
+export default FoodCardSmall;
