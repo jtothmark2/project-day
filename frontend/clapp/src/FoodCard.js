@@ -3,6 +3,7 @@ import {Component, React} from 'react';
 import { ReactComponent as Clap} from './assets/clap.svg';
 
 
+
 class FoodCard extends Component {
   render(){
     return (
@@ -11,7 +12,17 @@ class FoodCard extends Component {
         <div className='big-card'>
           <p className='big-card-title'>Popcorn</p>
           <div className='sizes'>
-            <Clap></Clap>
+            <img src={require("./assets/popcorn2.jpg")}></img>
+            <p>Small - 2l</p>
+            <p className='align-bot'>1000 Ft</p>
+          </div>
+          <div className='sizes'>
+            <img src={require("./assets/popcorn2.jpg")}></img>
+            <p>Small - 2l</p>
+            <p className='align-bot'>1000 Ft</p>
+          </div>
+          <div className='sizes'>
+            <img src={require("./assets/popcorn2.jpg")}></img>
             <p>Small - 2l</p>
             <p className='align-bot'>1000 Ft</p>
           </div>

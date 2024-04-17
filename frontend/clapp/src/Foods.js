@@ -8,9 +8,6 @@ class Foods extends Component {
     return (
       <div>
        <FoodCard></FoodCard>
-        
-
-       <p>small</p>
        <FoodCardSmall></FoodCardSmall>
       </div>
     );
