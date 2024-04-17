@@ -1,15 +1,15 @@
 import './Foods.css';
 import {Component, React} from 'react';
 
-class Foods extends Component {
+class FoodCard extends Component {
   render(){
     return (
       <div>
-       <img></img>
+       <img src='asd'></img>
        <h1>Title</h1>
        <p>ár</p>
       </div>
     );
   }
 }
-export default Foods;
+export default FoodCard;
