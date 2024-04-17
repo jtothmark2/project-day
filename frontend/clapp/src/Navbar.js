@@ -27,7 +27,7 @@ class Navbar extends Component {
     }
   render(){
     return (
-      <div className="navbar" id='navbar'>
+      <div className="navbar extended" id='navbar'>
         <img className='logo'></img>
         <div className='links'>
             <h1>Filmek</h1>
@@ -36,11 +36,11 @@ class Navbar extends Component {
         <div className='user'>
             <h2>Hey, User!</h2>
         </div>
-        {this.state.extended &&
+        
         <div className='hero'>
             <h1>Clapp</h1>
             <img className='banner' src={require('./assets/banner.webp')}></img>
-            </div>}
+            </div>
       </div>
     );
   }
