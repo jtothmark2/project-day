@@ -84,11 +84,14 @@
 }
 
 .bigMovieImg {
-  width: 540px;
-  margin: -20px;
-  border-radius: 10px 10px 0 0;
+  width: 80%;
+  height: 80%;
+  margin-left: 10%;
+  border-radius: 10px;
 }
-
+.bigMovieCard .movieTitle{
+  margin-top: 30px;
+}
 .showDetails {
   display: flex;
   align-items: center;
@@ -114,4 +117,10 @@
   position: absolute;
   height: 50px;
   width: 50px;
+}
+.close-invert {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  filter: invert(1);
 }
