@@ -18,6 +18,7 @@ root.render(
     <Route exact={true} path="/login" element={<Login />} />
     <Route exact={true} path="/register" element={<Register />} />
     
+    <Route exact={true} path="/order" element={<Order />} />
   </Routes>
 </BrowserRouter>
 );
