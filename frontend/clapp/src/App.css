@@ -29,27 +29,30 @@ body {
   height: 300px;
   align-items: baseline;
   padding-top: 10px;
+  overflow: hidden;
 }
 .navbar.extended .links{
   position: absolute;
-  top: 0%;
+  top: -2%;
 }
 .navbar.extended .hero{
   position: relative;
-  top: 20%;
+  top: 10%;
   display: flex;
   width: 100%;
   justify-content: center;
 }
 .navbar.extended .hero .banner{
-  width: 500px;
-  height: 200px;
+  padding-top: 20px;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
 .navbar.extended .hero h1{
   font-size: 80px;
   position: absolute;
   left: 0%;
-  top: 40%;
+  top: 35%;
 }
 .navbar .logo{
   background-color: white;
@@ -81,5 +84,5 @@ body {
   right: 0%;
 }
 .receipt{
-  
+
 }

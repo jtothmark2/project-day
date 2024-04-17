@@ -39,7 +39,7 @@ class Navbar extends Component {
         {this.state.extended &&
         <div className='hero'>
             <h1>Clapp</h1>
-            <img className='banner'></img>
+            <img className='banner' src={require('./assets/banner.webp')}></img>
             </div>}
       </div>
     );
