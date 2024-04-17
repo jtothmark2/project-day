@@ -70,7 +70,7 @@ class Movies extends Component {
             </div>
            
               <div className='btn'>
-                <button className='detailsBtn' onClick={() => this.props.app.nextStep()}>Buy ticket</button>
+                <button className='detailsBtn' style={{marginTop:-20}} onClick={() => this.props.app.nextStep(this.state.selectedMovie)}>Buy ticket</button>
               </div>
 
             </div>

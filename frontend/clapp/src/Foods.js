@@ -3,23 +3,49 @@ import FoodCardSmall from './FoodCardSmall';
 import './Foods.css';
 import {Component, React} from 'react';
 import { Call } from './api';
+import { useNavigate } from 'react-router-dom';
 
-
+const FoodsWrapper = (props) => {
+  const navigate = useNavigate();
+  return <Foods navigate={navigate} app={props.app} selectedMovie={props.selectedMovie}/>;
+}
 class Foods extends Component {
 
   state = {
     selecetedFoods: [],
     popcorns: [],
     cups: [],
-    ticketCount: 1
+    ticketCount: 1,
+    order: []
   }
 
   addSelectedFoods(food) {
     this.state.selecetedFoods.push(food);
   }
 
-  sendOrder() {
-    
+  async sendOrder() {
+    let products = {}
+    this.state.order.forEach(item => {
+      console.log(item.name)
+      if(products[item.name] != undefined){
+        products[item.name] = products[item.name]+1;
+      }else{
+        products[item.name] = 1;
+      }
+    });
+    var data = {screening_id: this.props.selectedMovie.id, tickets: this.state.ticketCount, products_json: {products: products}, token: localStorage.getItem('token')}
+    var result = await Call("POST", "api/order", data)
+
+    if(result.orderId != undefined){
+      const { navigate } = this.props;
+      navigate("/order");
+    }
+  }
+  addToOrder(item){
+    var order = this.state.order;
+    order.push(item)
+    this.setState({order: order})
+    console.log(item)
   }
 
   addTicket() {
@@ -39,7 +65,6 @@ class Foods extends Component {
   }
   async GetFoods(){
     var r = await Call('GET', 'api/products', {})
-    console.log(r)
     this.setState({popcorns: r.slice(0, 3)})
     this.setState({cups: r.slice(3)})
   }
@@ -48,24 +73,15 @@ class Foods extends Component {
       <div className='food-container food-movie-card'>
           <div className='your-order-container'>
             <p className='your-order'>Your order:</p>
-            <div className='movieCard'>
-
-            <img src={require("./assets/cinema.jpg")} className='movieImg'></img>
-
-
-            <h3 className='movieTitle'>Movie title</h3>
-            <div className='movieData'>
-              <p> genre - genre</p>
-              <p>120 min.</p>
-            </div>
-
+            <FoodCardSmall selectedFoods={this.state.selecetedFoods} ticketCount={this.state.ticketCount} 
+            parent={this} selectedMovie={this.props.selectedMovie.title} order={this.state.order}></FoodCardSmall>
           </div>
-            <FoodCardSmall selectedFoods={this.state.selecetedFoods} ticketCount={this.state.ticketCount} parent={this}></FoodCardSmall>
-          </div>
-         <FoodCard menu={this.state.popcorns}></FoodCard>
-         <FoodCard menu={this.state.cups}></FoodCard>
+         <FoodCard menu={this.state.popcorns} parent={this}></FoodCard>
+         <FoodCard menu={this.state.cups} parent={this}></FoodCard>
+
+         <h1 className='confirm-btn' onClick={()=>this.sendOrder()}>Confirm Order</h1>
       </div>
     );
   }
 }
-export default Foods;
+export default FoodsWrapper;

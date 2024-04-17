@@ -9,6 +9,7 @@ export async function Call(rest,route, args){
         myHeaders.append("X-Token", args.token);
          requestOptions = {
             method: "GET",
+            headers: myHeaders,
             redirect: "follow"
           }; 
     }

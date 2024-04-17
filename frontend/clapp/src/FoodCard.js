@@ -15,7 +15,7 @@ class FoodCard extends Component {
         <div className='big-card'>
           <p className='big-card-title'>Popcorn</p>
           {this.props.menu.map((item, index) => (
-            <div class="sizes-container">
+            <div class="sizes-container" onClick={()=>this.props.parent.addToOrder(item)}>
               <div className='sizes'>
                 <img className='food-img' src={item.name.includes("popcorn") ? require("./assets/popcorn3.jpg") : require("./assets/drinks.jpg")}></img>
                 <p>{item.description}</p>

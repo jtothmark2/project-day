@@ -7,12 +7,17 @@ import Receipt from './Receipt';
 import Navbar from './Navbar';
 import { ReactComponent as CloseCircle } from './assets/close-circle.svg';
 import { Link } from 'react-router-dom';
+import { Call } from './api';
 
 class Tickets extends Component {
   state = {
     step: 0,
     review: null,
-    orderDetails: null
+    orderDetails: null,
+    movies: []
+  }
+  componentDidMount(){
+    this.GetTickets();
   }
   setStep(e) {
     this.setState({ step: e.target.value })
@@ -20,6 +25,11 @@ class Tickets extends Component {
   nextStep() {
     console.log("!")
     this.setState({ step: this.state.step + 1 })
+  }
+  async GetTickets(){
+    var r = await Call("GET", "api/orders", {token: localStorage.getItem('token')})
+    console.log(r)
+    this.setState({movies: r})
   }
   render() {
     return (
@@ -29,7 +39,8 @@ class Tickets extends Component {
         <h1 className='moviesHeader' >My tickets:</h1>
 
         <div className='movies'>
-          <div className='seenMovieCard movieCard'>
+          {this.state.movies.map((movie,index) => (
+            <div className='seenMovieCard movieCard'>
 
             <img src={require("./assets/cinema.jpg")} className='seenMovieImg movieImg'></img>
 
@@ -40,7 +51,7 @@ class Tickets extends Component {
               <p>9/10</p>
             </div>
 
-            <h3 className='movieTitle seenMovieTitle'>Movie title</h3>
+            <h3 className='movieTitle seenMovieTitle'>{movie.title}</h3>
             <div>
               <p className='movieData'> genre - genre</p>
               <p className='movieData'>120 min.</p>
@@ -59,6 +70,7 @@ class Tickets extends Component {
             </div>
 
           </div>
+          ))}
         </div>
 
         {this.state.review != null &&
